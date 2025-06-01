@@ -56,7 +56,7 @@ export const login = async (req, res) => {
     // secure: process.env.NODE_ENV === 'production', // true if while in production env (https), false while in dev env (http)
     secure: true,
     sameSite: 'None',
-    domain: '.katieloesch.co.uk',
+    // domain: '.katieloesch.co.uk',
   });
 
   res.status(StatusCodes.OK).json({ msg: 'user logged in' });
