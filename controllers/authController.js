@@ -43,6 +43,12 @@ export const login = async (req, res) => {
   //one day in milliseconds
   const oneDayMs = 1000 * 60 * 60 * 24;
 
+  res.setHeader(
+    'Access-Control-Allow-Origin',
+    'https://hunting-buddy.katieloesch.co.uk'
+  );
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
+
   // send back cookie, name of cookie: 'token',
   res.cookie('token', token, {
     httpOnly: true, // can't be accessed using JS, makes it more secure
