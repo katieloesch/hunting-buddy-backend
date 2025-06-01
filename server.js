@@ -13,10 +13,7 @@ import helmet from 'helmet';
 import mongSanitize from 'express-mongo-sanitize';
 import cors from 'cors';
 
-const allowedOrigins = [
-  'http://localhost:5173', // dev
-  'https://hunting-buddy.katieloesch.co.uk', // deployed frontend
-];
+const allowedOrigins = ['https://hunting-buddy.katieloesch.co.uk'];
 
 // routers
 import jobRouter from './routes/jobRouter.js';
@@ -53,13 +50,7 @@ const corsOptions = {
 
 app.use(
   cors({
-    origin: function (origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error('Not allowed by CORS'));
-      }
-    },
+    origin: allowedOrigins[0],
     credentials: true,
   })
 );
