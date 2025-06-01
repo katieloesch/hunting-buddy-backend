@@ -37,6 +37,8 @@ cloudinary.config({
 
 // const __dirname = dirname(fileURLToPath(import.meta.url));
 
+app.set('trust proxy', 1);
+
 const corsOptions = {
   origin: function (origin, callback) {
     if (!origin || allowedOrigins.includes(origin)) {
