@@ -13,10 +13,10 @@ import helmet from 'helmet';
 import mongSanitize from 'express-mongo-sanitize';
 import cors from 'cors';
 
-// const allowedOrigins = [
-//   'http://localhost:5173', // dev
-//   'https://katieloesch.co.uk', // deployment
-// ];
+const allowedOrigins = [
+  'http://localhost:5173', // dev
+  'https://hunting-buddy.katieloesch.co.uk', // deployed frontend
+];
 
 // routers
 import jobRouter from './routes/jobRouter.js';
@@ -40,7 +40,6 @@ cloudinary.config({
 
 // const __dirname = dirname(fileURLToPath(import.meta.url));
 
-const allowedOrigins = ['http://localhost:5173', 'https://katieloesch.co.uk'];
 const corsOptions = {
   origin: function (origin, callback) {
     if (!origin || allowedOrigins.includes(origin)) {
@@ -54,7 +53,13 @@ const corsOptions = {
 
 app.use(
   cors({
-    origin: 'http://localhost:5173', // try this exact value first
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
     credentials: true,
   })
 );
