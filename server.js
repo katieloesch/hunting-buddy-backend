@@ -52,7 +52,13 @@ const corsOptions = {
   credentials: true,
 };
 
-app.use(cors(corsOptions));
+app.use(
+  cors({
+    origin: 'http://localhost:5173', // try this exact value first
+    credentials: true,
+  })
+);
+
 app.options('*', cors(corsOptions));
 
 if (process.env.NODE_ENV === 'development') {
