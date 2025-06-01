@@ -40,6 +40,8 @@ cloudinary.config({
 
 // const __dirname = dirname(fileURLToPath(import.meta.url));
 
+const allowedOrigins = ['http://localhost:5173', 'https://katieloesch.co.uk'];
+
 app.use(
   cors({
     origin: function (origin, callback) {
