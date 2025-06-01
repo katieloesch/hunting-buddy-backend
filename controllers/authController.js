@@ -59,6 +59,8 @@ export const login = async (req, res) => {
     // domain: '.katieloesch.co.uk',
   });
 
+  console.log(token);
+
   res.status(StatusCodes.OK).json({ msg: 'user logged in' });
 };
 
