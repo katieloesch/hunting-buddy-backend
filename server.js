@@ -13,10 +13,10 @@ import helmet from 'helmet';
 import mongSanitize from 'express-mongo-sanitize';
 import cors from 'cors';
 
-const allowedOrigins = [
-  'http://localhost:5173', // dev
-  'https://katieloesch.co.uk', // deployment
-];
+// const allowedOrigins = [
+//   'http://localhost:5173', // dev
+//   'https://katieloesch.co.uk', // deployment
+// ];
 
 // routers
 import jobRouter from './routes/jobRouter.js';
@@ -40,10 +40,16 @@ cloudinary.config({
 
 // const __dirname = dirname(fileURLToPath(import.meta.url));
 
+// app.use(
+//   cors({
+//     origin: allowedOrigins,
+//     credentials: true,
+//   })
+// );
+
 app.use(
   cors({
-    origin: allowedOrigins,
-    credentials: true,
+    origin: '*',
   })
 );
 
