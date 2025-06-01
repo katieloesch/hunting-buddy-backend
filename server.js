@@ -15,7 +15,7 @@ import cors from 'cors';
 
 const allowedOrigins = [
   'http://localhost:5173', // dev
-  'https://http://katieloesch.co.uk/hunting-buddy', // deployment
+  'https://katieloesch.co.uk', // deployment
 ];
 
 // routers
